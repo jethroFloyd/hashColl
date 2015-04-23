@@ -4,7 +4,8 @@
  * SHA - 1 Cryptanalysis
  *
  */
-#ifndef i
+
+// Commence coding date : 27th April
  
 #define F(i)	
  int main() {
