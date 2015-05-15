@@ -77,11 +77,43 @@ int chooseQuesToDash(int n, unsigned int m[] ) {
 
 // Now we need a function to propagate this '-' condition.
 
-// This is done by the update Control Unit.
-int updateControlUnit (/* whatevre */) {
-	// n is the current step number.
+// So, first, let us write a function to update a particular bit of A and E depending on M. n - step number
+int updateBit (int bitPos, int step, unsigned int A[], unsigned int E[], unsigned int m[], char mChar[][32], char aChar[][32], char eChar[][32]) {
+
+	// Let us build the bitPos - bit of A and E.
+	int bitE, bitA, bitEC, bitAC;
+	int chBit1 = extractBit(E, step - 1, bitPos);
+	int chBit2 = extractBit(E, step - 2, bitPos);
+	int chBit3 = extractBit(E, step - 3, bitPos);
+
+	int chBit = ch(chBit1, chBit2, chBit3);
+
+	int constBit = extractBit(k, step, bitPos);
+	int wordBit = extractBit(m, step, bitPos);
+	int EBit_4 = extractBit(E, step - 4, bitPos);
+	int ABit_4 = extractBit(A, step - 4, bitPos);
+
+	int sBit1 = extractBit(E, step - 1, (bitPos - 6) % 32);
+	int sBit2 = extractBit(E, step - 1, (bitPos - 11) % 32);
+	int sBit3 = extractBit(E, step - 1, (bitPos - 25) % 32);
+
+	int sBit = sBit1 ^ sBit2 ^ sBit3; 
+
+	int bitECarry = extractBit(ECarry, step, bitPos-1);
+
+	int bitE = EBit_4 ^ sBit ^ chBit ^ ABit_4 ^ constBit ^ wordBit ^ bitECarry;
+
+	int bitEC = (EBit_4 + sBit + chBit + ABit_4 + constBit + wordBit + bitECarry) >> 1;
+	// Dropped the last bit to generate the carry.
+
+
+
+
+}
+
+int extractBit (unsigned int reg[], int step, int pos) {
 	
-
-
+	int bit = ((reg[step] >> pos) & 1)
+	return bit;
 }
 
