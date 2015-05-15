@@ -5,7 +5,7 @@
 
 //ALWAYS USE UNSIGNED
 
-#include"sha2.h"
+#include "sha2.h"
 
 int main() {
 	int i;
