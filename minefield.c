@@ -106,7 +106,22 @@ int updateBit (int bitPos, int step, unsigned int A[], unsigned int E[], unsigne
 	int bitEC = (EBit_4 + sBit + chBit + ABit_4 + constBit + wordBit + bitECarry) >> 1;
 	// Dropped the last bit to generate the carry.
 
+	int SBit1 = extractBit(A, step - 1, (bitPos - 2) % 32);
+	int SBit2 = extractBit(A, step - 1, (bitPos - 13) % 32);
+	int SBit3 = extractBit(A, step - 1, (bitPost - 22) % 32);
 
+	int SBit = SBit1 ^ SBit2 ^ SBit3;
+
+	int bitACarry = extractBit(ACarry, step, bitPos - 1);
+
+	int mjBit1 = extractBit(A, step - 1, bitPos);
+	int mjBit2 = extractBit(A, step - 2, bitPos);
+	int mjBit3 = extractBit(A, step - 3, bitPos);
+
+	int mjBit = mj(mjBit1, mjBit2, mjBit3);
+
+	int bitA = (-ABit_4) ^ SBit ^ bitE ^ mjBit;
+	int bitACarry = ((-ABit_4) + SBit + bitE + mjBit) >> 1;
 
 
 }
@@ -115,5 +130,13 @@ int extractBit (unsigned int reg[], int step, int pos) {
 	
 	int bit = ((reg[step] >> pos) & 1)
 	return bit;
+}
+
+int setBit (unsigned int reg[], int step, int pos, int bit) {
+
+	bit = bit << pos; // shift bit to the required position.
+	reg[step] = reg[step] | bit; // 0110 | 0010 = 01 1 0, 0110 | 1000 = 1110 and so on.
+
+	return 0;
 }
 
