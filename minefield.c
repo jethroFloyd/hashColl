@@ -123,7 +123,6 @@ int updateBit (int bitPos, int step, unsigned int A[], unsigned int E[], unsigne
 	int bitA = (-ABit_4) ^ SBit ^ bitE ^ mjBit;
 	int bitACarry = ((-ABit_4) + SBit + bitE + mjBit) >> 1;
 
-
 }
 
 int extractBit (unsigned int reg[], int step, int pos) {
