@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "sha2.h"
 
-
+/* Code to generate code for propagate.c  and fill the pattern mother set. */
 int main() {
 
 	int i,j;
