@@ -22,7 +22,6 @@ int main() {
 	
 	/**
 	* Message Expansion
- 	*
  	*/
 	
 	for(i=16;i<64;i++)
@@ -42,7 +41,7 @@ int main() {
 	printf("\nStep: %2d\t%8x %8x %8x %8x\n\t\t%8x %8x %8x %8x\n", i,a, b, c, d, e, f, g, h);
 
 	int t1, t2;
-	
+
 	for(i=0;i<64;i++) {
 		t1 = h + (S1(e)) + (ch(e, f, g)) + k[i] + test[i];
 		t2 = (S0(a)) + (mj(a,b,c));
