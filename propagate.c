@@ -28,7 +28,9 @@ typedef struct bitPattern {
 	int count;
 	char name;
 } bitPattern;
+
 char choose (char, char, char, bitPattern *);
+
 int main() {
 
 

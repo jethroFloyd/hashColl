@@ -3,7 +3,11 @@
   * @author: Ritobroto Maitra, 2015
   */
 
-//ALWAYS USE UNSIGNED
+/**
+ * ALWAYS USE UNSIGNED
+ *
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -23,11 +27,11 @@ unsigned int k[64] = {
 
 #define ch(x,y,z) 	((x & y) ^ (~x & z))
 #define mj(x,y,z) 	((x & y) ^ (y & z) ^ (z & x))
-#define rr(x, y) 	(((x) >> (y)) | ((x) << (32 - (y))))
-#define lr(x,y)		(((x) << (y)) | ((x) >> (32 - (y))))
-#define rs(x,y) 	(x>>y)
-#define s0(x) 		((rr(x,7)) ^ (rr(x,18)) ^ (rs(x,3)))
-#define s1(x) 		((rr(x,17)) ^ (rr(x,19)) ^ (rs(x,10)))
-#define S0(x) 		((rr(x,2)) ^ (rr(x,13)) ^ (rr(x,22)))
-#define R0(x) 		((lr(x,2)) ^ (lr(x,13)) ^ (lr(x,22)))
-#define S1(x)	 	((rr(x,6)) ^ (rr(x,11)) ^ (rr(x,25)))
+#define rr(x, y)   	(((x) >> (y)) | ((x) << (32 - (y))))
+#define lr(x,y)		  (((x) << (y)) | ((x) >> (32 - (y))))
+#define rs(x,y) 	  (x>>y)
+#define s0(x) 		  ((rr(x,7)) ^ (rr(x,18)) ^ (rs(x,3)))
+#define s1(x) 	   	((rr(x,17)) ^ (rr(x,19)) ^ (rs(x,10)))
+#define S0(x) 		  ((rr(x,2)) ^ (rr(x,13)) ^ (rr(x,22)))
+#define R0(x) 		  ((lr(x,2)) ^ (lr(x,13)) ^ (lr(x,22)))
+#define S1(x)	  	  ((rr(x,6)) ^ (rr(x,11)) ^ (rr(x,25)))
