@@ -1,4 +1,4 @@
-#include <stdio.h>
+P#include <stdio.h>
 #include "sha2.h"
 
 int main() {
